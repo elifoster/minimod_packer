@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+require_relative '../lib/minimod_packer'
+
+valid = false
+@mod = ARGV[1].downcase
+
+until valid
+  if @mod.include?('decor')
+    valid = true
+    @mod = 'decor'
+  elsif @mod.include?('freedom')
+    valid = true
+    @mod = 'freedom'
+  elsif @mod.include?('pants')
+    valid = true
+    @mod = 'pants'
+  elsif @mod.include?('toy')
+    valid = true
+    @mod = 'toys'
+  else
+    valid = false
+    puts 'That is not a valid mod name.'
+  end
+end
+
+packer = MiniModPacker.new(ARGV[0])
+packer.unpack
+packer.pack(@mod)
+packer.delete
+
+puts 'Finished.'
