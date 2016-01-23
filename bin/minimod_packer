@@ -6,19 +6,24 @@ require_relative '../lib/minimod_packer'
 valid = false
 @mod = ARGV[1].downcase
 
+decor = 'decor'.freeze
+freedom = 'freedom'.freeze
+pants = 'pants'.freeze
+toys = 'toys'.freeze
+
 until valid
-  if @mod.include?('decor')
+  if @mod.include?(decor)
     valid = true
-    @mod = 'decor'
-  elsif @mod.include?('freedom')
+    @mod = decor
+  elsif @mod.include?(freedom)
     valid = true
-    @mod = 'freedom'
-  elsif @mod.include?('pants')
+    @mod = freedom
+  elsif @mod.include?(pants)
     valid = true
-    @mod = 'pants'
-  elsif @mod.include?('toy')
+    @mod = pants
+  elsif @mod.include?(toys)
     valid = true
-    @mod = 'toys'
+    @mod = toys
   else
     valid = false
     puts 'That is not a valid mod name.'
